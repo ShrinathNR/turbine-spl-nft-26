@@ -24,14 +24,34 @@ umi.use(signerIdentity(signer));
 (async () => {
   try {
     //change the image uri to your image uri obtained from nft_image.ts
+    // got this link from this command -> npm run nft:image
     const image =
-      "https://gateway.irys.xyz/5EDyiNrMWfhjdsEwXLrwkHPwZoZB2m1A2Kudrfxo1tpr";
+      "https://gateway.irys.xyz/8U57szopPBqohgZxVmRi5XbEzb1C3ngGwp4BNWh9anRz";
 
     //json scheme : https://www.metaplex.com/docs/smart-contracts/core/json-schema
     //change the metadata
-    // const metadata =
-    // const myUri =
-    // console.log(`metadata uri: ${myUri} `);
+    const metadata = {
+      name: "VSHL01",
+      symbol: "V01",
+      description: "A rug from the Turbin3 Q3 2026 cohort.",
+      image,
+      attributes: [
+        { trait_type: "Cohort", value: "Q3 2026" },
+        { trait_type: "Rarity", value: "Common" },
+      ],
+      properties: {
+        files: [
+          {
+            type: "image/png",
+            uri: image,
+          },
+        ],
+        category: "image",
+      },
+    };
+
+    const myUri = await umi.uploader.uploadJson(metadata);
+    console.log(`metadata uri: ${myUri} `);
   } catch (error) {
     console.log("error", error);
   }

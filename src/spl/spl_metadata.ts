@@ -14,7 +14,10 @@ import {
 import bs58 from "bs58";
 
 //paste your mint address got from spl_init.ts
-const mint = publicKey("E2Jazz2VXcVL9RZkn6ZFA4q1YGvgEvrns3Gr6w72DC4w");
+const mint = publicKey("H7JaSY4pYAP62B7CUYXK32iLVyVV8r7i8fRrGNxmvn4Z");
+
+//paste the metadata uri got from spl_upload.ts
+const TOKEN_METADATA_URI = "https://gateway.irys.xyz/2SbuG5yD4Vh5yx3C2b4gb3h3XgciGerJzCTWUi73FYQA";
 
 const umi = createUmi("https://api.devnet.solana.com");
 
@@ -30,18 +33,31 @@ umi.use(signerIdentity(signer));
       mintAuthority: signer,
     };
 
+
     //change the metadata
-    // const data: DataV2Args =
+    const data: DataV2Args = {
+      name: "mars",
+      symbol: "MARS",
+      uri: TOKEN_METADATA_URI,
+      sellerFeeBasisPoints: 0,
+      creators: null,
+      collection: null,
+      uses: null,
+    };
 
-    // const args: CreateMetadataAccountV3InstructionArgs =
+    const args: CreateMetadataAccountV3InstructionArgs = {
+      data,
+      isMutable: true,
+      collectionDetails: null,
+    };
 
-    // const tx = createMetadataAccountV3(umi, {
-    //   ...accounts,
-    //   ...args,
-    // });
+    const tx = createMetadataAccountV3(umi, {
+      ...accounts,
+      ...args,
+    });
 
-    // const result = await tx.sendAndConfirm(umi);
-    // console.log("signature: ", bs58.encode(Buffer.from(result.signature)));
+    const result = await tx.sendAndConfirm(umi);
+    console.log("signature: ", bs58.encode(Buffer.from(result.signature)));
   } catch (error) {
     console.log("error", error);
   }

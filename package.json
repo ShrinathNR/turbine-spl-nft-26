@@ -4,14 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npx ts-node src/test/assignment.test.ts",
     "spl:init": "npx ts-node src/spl/spl_init.ts",
+    "spl:upload": "npx ts-node src/spl/spl_upload.ts",
     "spl:metadata": "npx ts-node src/spl/spl_metadata.ts",
     "spl:mint": "npx ts-node src/spl/spl_mint.ts",
     "spl:transfer": "npx ts-node src/spl/spl_transfer.ts",
     "nft:image": "npx ts-node src/nft/nft_image.ts",
     "nft:metadata": "npx ts-node src/nft/nft_metadata.ts",
-    "nft:mint": "npx ts-node src/nft/nft_mint.ts"
+    "nft:mint": "npx ts-node src/nft/nft_mint.ts",
+    "nft:update": "npx ts-node src/nft/nft_update.ts",
+    "nft:transfer": "npx ts-node src/nft/nft_transfer.ts",
+    "nft:burn": "npx ts-node src/nft/nft_burn.ts"
   },
   "keywords": [],
   "author": "",

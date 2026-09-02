@@ -21,17 +21,29 @@ umi.use(mplCore());
 
 (async () => {
   try {
+    //change the metadata uri to the one obtained from nft_metadata.ts
+    // got this from metadata file
+    // metadata uri: https://gateway.irys.xyz/G9niwzguiKqoPNiiLL6Ak38XqjSVeaFEJWczHzQXZpAf
     const metadataUri =
-      "https://gateway.irys.xyz/BihKZnhMCvxN3i34cv25eEyFgUvBVGJQn1Gp11D4LxEi ";
+      "https://gateway.irys.xyz/G9niwzguiKqoPNiiLL6Ak38XqjSVeaFEJWczHzQXZpAf";
     const asset = generateSigner(umi);
 
     //add you nft name and metadata uri
-    // const tx = await create()
+    const tx = await create(umi, {
+      asset,
+      name: "VSHL01",
+      uri: metadataUri,
+    }).sendAndConfirm(umi);
 
-    // const signature = base58.deserialize(tx.signature)[0];
+    const signature = base58.deserialize(tx.signature)[0];
 
-    // console.log(`signature ${signature} , asset : ${asset.publicKey}`);
+    console.log(`signature ${signature} , asset : ${asset.publicKey}`);
   } catch (e) {
     console.log(`errior ${e}`);
   }
 })();
+
+
+// got this after mint 
+// signature 4hvfwd1pV13Xc33L58E64MbuwjGBMcXWtTDa8cotLeWgHjNQh8h875U29Wd1MGo8CzdyDEq2DPyFv7ztuwfU6S4a , 
+// asset : DMw4uFZ8HEfdKgAHGzo3hr3JS9fXDW6NV1MmA6N3Cokn
