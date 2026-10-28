@@ -27,14 +27,18 @@ umi.use(signerIdentity(signer));
 (async () => {
   try {
     //chanege image path to your image path
-    const image = await readFile("file-path");
+    const imagePath = process.env.NFT_IMAGE_PATH ?? "mint-image.png";
+    const image = await readFile(imagePath);
 
     //change the image name and mime type
-    // const file =
+    const file = createGenericFile(image, "mint-image.png", {
+      contentType: "image/png",
+    });
 
-    // const [myUri] =
-    // console.log("Your image URI: ", myUri);
+    const [imageUri] = await umi.uploader.upload([file]);
+    console.log("Your image URI:", imageUri);
   } catch (error) {
-    console.log(error);
+    console.error("Image upload failed:", error);
+    process.exitCode = 1;
   }
 })();

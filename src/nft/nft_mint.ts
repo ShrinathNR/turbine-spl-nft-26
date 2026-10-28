@@ -21,17 +21,22 @@ umi.use(mplCore());
 
 (async () => {
   try {
-    const metadataUri =
-      "https://gateway.irys.xyz/BihKZnhMCvxN3i34cv25eEyFgUvBVGJQn1Gp11D4LxEi ";
+    const metadataUri = process.env.NFT_METADATA_URI ??
+      "https://gateway.irys.xyz/BihKZnhMCvxN3i34cv25eEyFgUvBVGJQn1Gp11D4LxEi";
     const asset = generateSigner(umi);
 
     //add you nft name and metadata uri
-    // const tx = await create()
+    const tx = await create(umi, {
+      asset,
+      name: process.env.NFT_NAME ?? "Devnet NFT",
+      uri: metadataUri,
+    }).sendAndConfirm(umi);
 
-    // const signature = base58.deserialize(tx.signature)[0];
+    const signature = base58.deserialize(tx.signature)[0];
 
-    // console.log(`signature ${signature} , asset : ${asset.publicKey}`);
+    console.log(`Signature: ${signature}, Asset: ${asset.publicKey}`);
   } catch (e) {
-    console.log(`errior ${e}`);
+    console.error("NFT mint failed:", e);
+    process.exitCode = 1;
   }
 })();

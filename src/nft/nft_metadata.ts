@@ -24,15 +24,24 @@ umi.use(signerIdentity(signer));
 (async () => {
   try {
     //change the image uri to your image uri obtained from nft_image.ts
-    const image =
+    const image = process.env.NFT_IMAGE_URI ??
       "https://gateway.irys.xyz/5EDyiNrMWfhjdsEwXLrwkHPwZoZB2m1A2Kudrfxo1tpr";
 
     //json scheme : https://www.metaplex.com/docs/smart-contracts/core/json-schema
     //change the metadata
-    // const metadata =
-    // const myUri =
-    // console.log(`metadata uri: ${myUri} `);
+    const metadata = {
+      name: process.env.NFT_NAME ?? "Devnet NFT",
+      description: process.env.NFT_DESCRIPTION ?? "An NFT minted on Solana devnet.",
+      image,
+      properties: {
+        files: [{ uri: image, type: "image/png" }],
+      },
+    };
+
+    const metadataUri = await umi.uploader.uploadJson(metadata);
+    console.log("Metadata URI:", metadataUri);
   } catch (error) {
-    console.log("error", error);
+    console.error("Metadata upload failed:", error);
+    process.exitCode = 1;
   }
 })();
