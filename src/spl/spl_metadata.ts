@@ -33,7 +33,7 @@ umi.use(signerIdentity(signer));
     //change the metadata
     const data: DataV2Args = {
       name: "Fidbyte",
-      symbol: "Fidbyte",
+      symbol: "FID",
       uri: "https://zso3msbtu5jbkpwrq5dgytfyp57ikal4jpawq6oeyfidd2nzz47q.turbo-gateway.com/zJ22SDOnUhU-0YdGbEy4f36FAXxLwWh5xMFQMem5zz8?",
       sellerFeeBasisPoints: 1,
       creators: null,
