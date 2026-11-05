@@ -27,7 +27,7 @@ const rpcSubscriptions = createSolanaRpcSubscriptions(
 );
 
 //paste your mint address got from spl_init.ts
-const mint = address("48DArF6rUW1bJxCHW4nAvKtTpEEn4cLrHBYsfcfyrLCx");
+const mint = address("AB7GZ9bohbtRfGWXjhmVKKZHRsXWasnjmhGADZ9Y5kdK");
 
 //paste the address of the recipient
 const to = address("J2Rnp3AkbHWzXnGC9rnYnnKesA4ft63xXZKSmnURypoH");

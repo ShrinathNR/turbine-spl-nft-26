@@ -14,7 +14,7 @@ import {
 import bs58 from "bs58";
 
 //paste your mint address got from spl_init.ts
-const mint = publicKey("48DArF6rUW1bJxCHW4nAvKtTpEEn4cLrHBYsfcfyrLCx");
+const mint = publicKey("AB7GZ9bohbtRfGWXjhmVKKZHRsXWasnjmhGADZ9Y5kdK");
 
 const umi = createUmi("https://api.devnet.solana.com");
 
@@ -32,9 +32,9 @@ umi.use(signerIdentity(signer));
 
     //change the metadata
     const data: DataV2Args = {
-      name: "Fidbyte",
-      symbol: "FID",
-      uri: "https://zso3msbtu5jbkpwrq5dgytfyp57ikal4jpawq6oeyfidd2nzz47q.turbo-gateway.com/zJ22SDOnUhU-0YdGbEy4f36FAXxLwWh5xMFQMem5zz8?",
+      name: "Rug",
+      symbol: "RUG",
+      uri: "https://gateway.irys.xyz/9LN8grqptu4khizRWm4kkPeFtVfNECfZEuHUASHbrGNF",
       sellerFeeBasisPoints: 1,
       creators: null,
       collection: null,
