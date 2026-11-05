@@ -4,6 +4,10 @@ A collection of TypeScript scripts for creating and managing SPL tokens and
 Metaplex Core NFTs on Solana devnet. The project includes the required token
 and NFT workflows, plus optional NFT transfer and burn exercises.
 
+## Project write-up
+
+[What building Solana token and NFT scripts taught me about ownership](https://lnkd.in/p/eXDMxWbt) — LinkedIn article about the project, what I learned, and how the lessons apply to on-chain asset workflows.
+
 ## Features
 
 ### Required
