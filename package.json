@@ -11,7 +11,10 @@
     "spl:transfer": "npx ts-node src/spl/spl_transfer.ts",
     "nft:image": "npx ts-node src/nft/nft_image.ts",
     "nft:metadata": "npx ts-node src/nft/nft_metadata.ts",
-    "nft:mint": "npx ts-node src/nft/nft_mint.ts"
+    "nft:mint": "npx ts-node src/nft/nft_mint.ts",
+    "nft:update": "npx ts-node src/nft/nft_update.ts",
+    "nft:transfer": "npx ts-node src/nft/nft_transfer.ts",
+    "nft:burn": "npx ts-node src/nft/nft_burn.ts"
   },
   "keywords": [],
   "author": "",
@@ -29,7 +32,7 @@
     "bs58": "^6.0.0"
   },
   "devDependencies": {
-    "@types/node": "^25.6.0",
+    "@types/node": "^25.9.9",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.3"
   }
